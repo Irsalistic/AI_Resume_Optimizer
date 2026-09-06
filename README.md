@@ -1,115 +1,44 @@
-# Resume Optimization Tool
+# Resume Optimizer
 
-A Streamlit-based application that helps users optimize their resumes for specific job applications using Language Learning Models (LLMs). The tool analyzes your resume against job descriptions and provides tailored recommendations.
+A Streamlit app that reads your resume (PDF or DOCX), compares it to a job description, and suggests improvements with an LLM.
+
+Works with **Ollama** (local), **OpenAI**, or **Groq**.
 
 ## Features
 
-- Upload resume in PDF or DOCX format
-- Process job descriptions
-- Company and role-specific optimization
-- Integration with multiple LLM options (Ollama, OpenAI, Groq)
-- Real-time resume analysis and feedback
-- User-friendly Streamlit interface
+- Upload a resume as PDF or DOCX
+- Paste a company, role, and job description
+- Tailored rewrite suggestions from the model you configure
 
-## Prerequisites
+## Setup
 
-- Python 3.8+
-- Streamlit
-- PyMuPDF (fitz)
-- python-docx
-- langchain
-- python-dotenv
-- Ollama
-
-## Installation
-
-1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd resume-optimizer
+git clone https://github.com/Irsalistic/AI_Resume_Optimizer.git
+cd AI_Resume_Optimizer
+pip install -r requirements.txt
 ```
 
-2. Install required dependencies:
-```bash
-pip install streamlit pymupdf python-docx langchain python-dotenv
-```
+Optional `.env` for cloud providers:
 
-3. Set up environment variables in `.env` file:
 ```env
 OPENAI_API_KEY=your_openai_api_key
 GROQ_API_KEY=your_groq_api_key
 ```
 
-## Usage
+Local Ollama does not need those keys. Install [Ollama](https://ollama.com/) and pull a model such as `llama3.1:8b`.
 
-1. Start the Streamlit application:
+## Run
+
 ```bash
 streamlit run app.py
 ```
 
-2. Access the application through your web browser (typically http://localhost:8501)
+Open http://localhost:8501, fill in the company and role, upload the resume, and click **Go**.
 
-3. Fill in the required information:
-   - Target company name
-   - Role you're applying for
-   - Job description
-   - Upload your resume (PDF or DOCX format)
-
-4. Click "Go" to receive optimization suggestions
-
-## File Structure
+## Layout
 
 ```
-project/
-├── main.py              # Main application file
-├── prompts.py          # LLM prompt templates
-├── .env               # Environment variables
-└── requirements.txt    # Project dependencies
+app.py              # Streamlit UI and LLM calls
+prompts.py          # Prompt templates
+requirements.txt
 ```
-
-## Supported File Formats
-
-- PDF (.pdf)
-- Microsoft Word (.docx)
-
-## Features in Detail
-
-### Resume Text Extraction
-- Automatic detection of file format
-- PDF text extraction using PyMuPDF
-- DOCX parsing using python-docx
-- Error handling for file processing
-
-### LLM Integration
-- Default configuration with Ollama (llama3.1:8b)
-- Configurable temperature for response variation
-- Conversation memory buffer for context maintenance
-- Support for multiple LLM providers (OpenAI, Groq)
-
-### User Interface
-- Clean and intuitive Streamlit interface
-- Real-time feedback
-- Error handling for missing inputs
-- Loading indicators for processing status
-
-## Error Handling
-
-The application includes comprehensive error handling for:
-- Invalid file formats
-- Empty or corrupted files
-- Missing input fields
-- API connection issues
-
-
-## Acknowledgments
-
-- Built with Streamlit
-- Powered by Langchain
-- Uses Ollama LLM
-
-## Future Enhancements
-
-- Additional file format support
-- Enhanced analysis capabilities
-- Custom prompt templates
-- Batch processing support

@@ -3,5 +3,5 @@ streamlit
 python-docx
 openai
 PyMuPDF
-dotenv
 langchain
+groq
