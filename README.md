@@ -25,7 +25,7 @@ OPENAI_API_KEY=your_openai_api_key
 GROQ_API_KEY=your_groq_api_key
 ```
 
-Local Ollama does not need those keys. Install [Ollama](https://ollama.com/) and pull a model such as `llama3.1:8b`.
+Set `LLM_PROVIDER` to `ollama` (default), `openai`, or `groq`. Local Ollama does not need API keys. Install [Ollama](https://ollama.com/) and pull a model such as `llama3.1:8b`.
 
 ## Run
 

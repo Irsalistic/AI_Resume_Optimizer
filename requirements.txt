@@ -4,4 +4,6 @@ python-docx
 openai
 PyMuPDF
 langchain
+langchain-community
+langchain-groq
 groq
